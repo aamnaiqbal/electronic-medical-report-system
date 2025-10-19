@@ -20,7 +20,7 @@ healthcare-backend/
 ├── tests/              # API tests
 ├── server.js           # Entry point
 ├── package.json        # Dependencies and scripts
-├── .env.example        # Environment variables template
+├── env.example        # Environment variables template
 ├── .gitignore          # Git ignore rules
 ├── database.sql        # MySQL database schema
 └── README.md           # This file
@@ -49,7 +49,7 @@ healthcare-backend/
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env
+   cp env.example .env
    ```
    
    Edit `.env` file with your configuration:
@@ -186,48 +186,7 @@ The system includes the following tables:
 | `NODE_ENV` | Environment | development |
 | `CLIENT_URL` | Frontend URL | http://localhost:3000 |
 
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage
-npm run test:coverage
-```
-
-## 📝 API Documentation
-
-The API documentation will be available at `/api/docs` once implemented.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new features
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ## 🆘 Support
 
 For support and questions, please open an issue in the repository.
-
-## 🔄 Next Steps
-
-- [ ] Implement authentication routes
-- [ ] Create user management endpoints
-- [ ] Add doctor and patient management
-- [ ] Implement appointment scheduling
-- [ ] Add medical records management
-- [ ] Create prescription system
-- [ ] Add file upload functionality
-- [ ] Implement email notifications
-- [ ] Add comprehensive testing
-- [ ] Create API documentation

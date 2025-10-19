@@ -90,7 +90,7 @@ cd backend
 npm install
 
 # Create .env file
-cp .env.example .env
+cp env.example .env
 
 # Edit .env file with your configuration
 # DATABASE_HOST=localhost
@@ -120,7 +120,7 @@ cd frontend
 npm install
 
 # Create .env.local file (IMPORTANT!)
-cp .env.example .env.local
+cp env.example .env.local
 
 # Edit .env.local file
 # NEXT_PUBLIC_API_URL=http://localhost:5000/api
@@ -131,7 +131,7 @@ npm run dev
 
 The frontend will run on `http://localhost:3000`
 
-⚠️ **IMPORTANT**: The `.env.local` file is required for the frontend to connect to the backend API. Without it, you'll get HTML error responses instead of JSON.
+⚠️ **IMPORTANT**: The `.env.local` file is required for the frontend to connect to the backend API.
 
 ## 🔐 Environment Variables
 

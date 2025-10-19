@@ -110,10 +110,7 @@ CREATE INDEX idx_medical_records_patient_id ON medical_records(patient_id);
 CREATE INDEX idx_medical_records_doctor_id ON medical_records(doctor_id);
 CREATE INDEX idx_prescriptions_medical_record_id ON prescriptions(medical_record_id);
 
--- Insert sample admin user (password: admin123)
+-- Insert sample admin user (password: Admin123)
 INSERT INTO users (email, password, role) VALUES 
 ('admin123@healthcare.com', '$2a$10$aNR3Uh0KGZNvfiAymDXCWeCwHLVfTExIR45aO.Kw1HcNgGh2QBbs6', 'admin');
 
--- Insert sample profile for admin
-INSERT INTO profiles (user_id, first_name, last_name, phone, gender) VALUES 
-(1, 'Admin', 'User', '+923345678675', 'other');

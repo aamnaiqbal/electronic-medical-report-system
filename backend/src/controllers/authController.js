@@ -124,10 +124,10 @@ const login = async (req, res) => {
         }
         
         // Verify password
-        // const isPasswordValid = await verifyPassword(password, user.password);
-        // if (!isPasswordValid) {
-        //     return unauthorizedResponse(res, 'Invalid email or password');
-        // }
+        const isPasswordValid = await verifyPassword(password, user.password);
+        if (!isPasswordValid) {
+            return unauthorizedResponse(res, 'Invalid email or password');
+        }
         
         // Generate JWT token
         const token = generateToken(user.id, user.role);

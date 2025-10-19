@@ -119,11 +119,19 @@ cd frontend
 # Install dependencies
 npm install
 
+# Create .env.local file (IMPORTANT!)
+cp .env.example .env.local
+
+# Edit .env.local file
+# NEXT_PUBLIC_API_URL=http://localhost:5000/api
+
 # Start the development server
 npm run dev
 ```
 
 The frontend will run on `http://localhost:3000`
+
+⚠️ **IMPORTANT**: The `.env.local` file is required for the frontend to connect to the backend API. Without it, you'll get HTML error responses instead of JSON.
 
 ## 🔐 Environment Variables
 
@@ -146,6 +154,11 @@ NODE_ENV=development
 
 # CORS Configuration
 CLIENT_URL=http://localhost:3000
+```
+
+### Frontend (.env.local)
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
 ### Frontend (if needed)
@@ -265,12 +278,27 @@ Create test accounts for each role:
 
 ## 🐛 Common Issues & Solutions
 
+### Login returns HTML instead of JSON / "Unexpected token '<'" error
+**Problem**: Frontend getting HTML error page instead of JSON response when logging in
+
+**Cause**: Missing `.env.local` file in frontend directory (this file is not in git)
+
+**Solution**:
+```bash
+cd frontend
+cp .env.example .env.local
+# Edit .env.local and add:
+# NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+Then restart the frontend server (`npm run dev`)
+
 ### Backend won't start
 - Check MySQL is running: `mysql --version`
 - Verify database credentials in `.env`
 - Ensure port 5000 is not in use
 
 ### Frontend won't connect to backend
+- **Most Common**: Create `.env.local` file in frontend folder (see above)
 - Verify backend is running on port 5000
 - Check CORS configuration in backend
 - Ensure `CLIENT_URL` in backend `.env` matches frontend URL
@@ -278,8 +306,9 @@ Create test accounts for each role:
 ### Database connection failed
 - Verify MySQL service is running
 - Check database name exists: `SHOW DATABASES;`
-- Verify user credentials
+- Verify user credentials (check DATABASE_PASSWORD in .env)
 - Check port 3306 is correct
+- If using XAMPP/WAMP, password might be empty: `DATABASE_PASSWORD=`
 
 ## 📝 Future Enhancements
 
